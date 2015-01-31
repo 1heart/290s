@@ -11,6 +11,12 @@ h1 {
 	font: 72px/72px Segoe UI Light, "Arial", sans-serif;
 }
 
+p {
+	color:gray;
+	text-align:center;
+	font: 24px/24px Segoe UI Light, "Arial", sans-serif;
+}
+
 .overlay {
     opacity:0.9;
     background-color:black;
@@ -22,8 +28,3 @@ h1 {
     z-index:-1000;
 }
 
-.class {
-	color:white;
-	font: 16px/16px Segoe UI Light, "Arial", sans-serif;
-	z-index:1;
-}
