@@ -1,5 +1,6 @@
 from app import db
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
 
@@ -7,6 +8,8 @@ class User(db.Model):
 	name = db.Column(db.String(40))
 	email = db.Column(db.String(80))
 	username = db.Column(db.String(40))
+	password = db.Column(db.String(40))
+	pw_hash = db.Column(db.String(160))
 	bio = db.Column(db.String(500))
 	karma = db.Column(db.Integer)
 	start_date = db.Column(db.DateTime)
@@ -14,12 +17,13 @@ class User(db.Model):
 	# answers is backref-ed by Answer class
 	# comments is backref-ed by Comment class
 
-	def __init__(self, name, email, username, 
+	def __init__(self, name, email, username, password,
 				bio, karma=0, start_date=None):
 
 		self.name = name
 		self.email = email
 		self.username = username
+		self.set_password(password)
 		self.bio = bio
 		self.karma = 0
 
@@ -39,6 +43,13 @@ class User(db.Model):
 
 	def is_anonymous(self):
 		return False
+
+	"""Password"""
+	def set_password(self, password):
+		self.pw_hash = generate_password_hash(password)
+
+	def check_password(self, password):
+		return check_password_hash(self.pw_hash, password)
 
 
 class Question(db.Model):

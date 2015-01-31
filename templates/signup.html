@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="form">
+<form method=post>
+
+
+	{{ signup_form.hidden_tag() }}
+
+	<h2>Sign Up</h2>
+
+	<hr>
+
+	{{ signup_form.name(size=32, placeholder="name") }}
+
+	{% for error in signup_form.name.errors %}
+	<span style="color:red;">[{{error}}]</span>
+	{% endfor %}
+
+	{{ signup_form.email(size=32, placeholder="email") }}
+
+	{% for error in signup_form.email.errors %}
+	<span style="color:red;">[{{ error }}]</span>
+	{% endfor %}
+
+	{{ signup_form.username(size=32, placeholder="username") }}
+
+	{% for error in signup_form.username.errors %}
+	<span style="color:red;">[{{error}}]</span>
+	{% endfor %}
+
+	{{ signup_form.password(size=32, placeholder="password") }}
+
+	{% for error in signup_form.password.errors %}
+	<span style="color:red;">[{{ error }}]</span>
+	{% endfor %}
+
+	<hr>
+	<input type="submit" class="submit" name="submit" value="sign up">
+</form>
+</div>
+
+{% endblock %}
