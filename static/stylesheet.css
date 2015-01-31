@@ -1,0 +1,29 @@
+body {
+	background-image:url(background.jpg);
+}
+
+
+h1 {
+	margin:30px;
+	text-indent:0px;
+	text-align:center;
+	color:white;
+	font: 72px/72px Segoe UI Light, "Arial", sans-serif;
+}
+
+.overlay {
+    opacity:0.9;
+    background-color:black;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:-1000;
+}
+
+.class {
+	color:white;
+	font: 16px/16px Segoe UI Light, "Arial", sans-serif;
+	z-index:1;
+}
